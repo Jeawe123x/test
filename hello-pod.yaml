@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: my-first-test-pod
+spec:
+  containers:
+  - name: hello-container
+    image: alpine
+    command: ["/bin/sh", "-c"]
+    args:
+    - |
+      echo "Pod successfully deployed!"
+      echo "I am now running inside the Kubernetes cluster."
+      echo "An attacker would use this pod to scan the network or create a reverse shell."
+      sleep 3600
